@@ -19,4 +19,4 @@ It uses the very minimal `scratch` base container, so the image only contains a 
 docker run -t --name hiper ghcr.io/zackplan/hiper
 ```
 
-An example using docker compose can be found [here](REPLACE-ME).
+An example using docker compose can be found [here](https://github.com/zackplan/hiper/blob/main/docker-compose.yml).
