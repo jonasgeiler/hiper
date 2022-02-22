@@ -7,6 +7,8 @@ import (
 	"github.com/hetznercloud/hcloud-go/hcloud"
 	"log"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
@@ -82,6 +84,12 @@ func main() {
 		// Handle server not found
 		fmt.Println(fmt.Sprintf("Unable to find server named \"%v\"!", serverName))
 	}
+
+	exitSignal := make(chan os.Signal, 1)
+	signal.Notify(exitSignal, syscall.SIGINT, syscall.SIGTERM)
+	<-exitSignal
+
+	fmt.Println("Stopping...")
 }
 
 func LookupEnvOrString(env string, defaultVal string) string {

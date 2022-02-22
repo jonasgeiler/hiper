@@ -12,8 +12,7 @@ I got the idea from [this serverfault answer](https://serverfault.com/a/930938/9
 
 ## Usage
 
-The image doesn't have any built-in way of keeping the container running, so you'll have to use the `tty` option when starting a container using this image.  
-It uses the very minimal `scratch` base container, so the image only contains a single binary.  
+> Note: The image is built using the very minimal `scratch` base image, so it only contains a single binary.  
 
 ```shell
 docker run -t --name hiper ghcr.io/zackplan/hiper
