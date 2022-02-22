@@ -1,7 +1,7 @@
 #############################################
 # STEP 1: Build optimized executable binary #
 #############################################
-FROM golang:1.17-alpine AS builder
+FROM golang:1.17-alpine AS build
 WORKDIR /app
 
 COPY go.mod ./
@@ -17,6 +17,6 @@ RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /hiper
 #######################################################
 FROM alpine
 
-COPY --from=builder /hiper /hiper
+COPY --from=build /hiper /hiper
 
 ENTRYPOINT ["/hiper"]
