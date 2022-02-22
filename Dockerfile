@@ -10,14 +10,13 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /hiper
+RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /hiper
 
 #######################################################
 # STEP 2: Build a minimal image which runs the binary #
 #######################################################
-FROM scratch
+FROM alpine
 
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /hiper /hiper
 
 ENTRYPOINT ["/hiper"]

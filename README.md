@@ -12,8 +12,6 @@ I got the idea from [this serverfault answer](https://serverfault.com/a/930938/9
 
 ## Usage
 
-> Note: The image is built using the very minimal `scratch` base image, so it only contains a single binary.  
-
 ```shell
 docker run -t --name hiper ghcr.io/zackplan/hiper
 ```

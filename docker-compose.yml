@@ -4,9 +4,6 @@ services:
   hiper:
     image: ghcr.io/zackplan/hiper
 
-    # Keep container running
-    tty: true
-
     environment:
       # Hetzner Cloud API key
       HCLOUD_API_KEY: someapikey123
