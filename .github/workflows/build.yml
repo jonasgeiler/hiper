@@ -37,7 +37,7 @@ jobs:
         with:
           images: ghcr.io/zackplan/hiper
           tags: |
-            type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}
+            type=raw,value=latest
 
       - name: Build & Push Image 🏗
         uses: docker/build-push-action@v2
