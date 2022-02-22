@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  hiper:
+    image: ghcr.io/zackplan/hiper
+
+    # Keep container running
+    tty: true
+
+    environment:
+      # Hetzner Cloud API key
+      HCLOUD_API_KEY: someapikey123
+
+      # Server name
+      SERVER_NAME: {{.Node.Hostname}}
+
+      # Floating IP name
+      FLOATING_IP_NAME: my-floating-ip-1
